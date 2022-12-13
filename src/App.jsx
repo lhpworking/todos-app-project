@@ -1,10 +1,14 @@
+import { lazy, Suspense } from 'react'
 import './App.css'
-import Todo from './components/todos'
 
+
+const Todo = lazy(() => import("./components/todos"))
 function App() {
 
   return (
-    <Todo />
+    <Suspense fallback={ <p>Loading...</p> }>
+      <Todo />
+    </Suspense>
   )
 }
 
