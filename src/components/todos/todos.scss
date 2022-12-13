@@ -1,0 +1,125 @@
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & > svg {
+        fill: orange;
+    }
+}
+
+.todo {
+    &__input {
+        display: flex;
+        gap: 1rem;
+        justify-items: center;
+
+        & > input {
+            flex: 1;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        & > button {
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    &__task {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        & > li {
+            display: flex;
+            list-style: none;
+            padding: 20px 15px;
+            border-radius: 5px;
+            gap: 1rem;
+            background-color: rgba($color: #ccc, $alpha: .2);
+
+            &:hover {
+                opacity: .5;
+                cursor: pointer;
+                transition: all .2s linear ease-in-out;
+                will-change: opacity;
+            }
+
+            & > p {
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                padding: 0;
+                margin: 0;
+                flex: 1;
+            }
+
+            & > svg {
+                fill: #000;
+            }
+        }
+    }
+
+}
+
+.table {
+    &__container {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    &__task {
+        flex: 1;
+
+        & > h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            text-transform: capitalize;
+
+            & > svg {
+                fill: red;
+            }
+        }
+
+        &.done {
+            & > h2 {
+                & > svg {
+                    fill: green;
+                }
+            }
+
+            & > ul {
+                & > li {
+                    background-color: rgba($color: #ccc, $alpha: .1);
+                    text-decoration: line-through;
+
+                    & > p {
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .table {
+        &__container {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width:374px) {
+    .todo {
+        &__input {
+            flex-direction: column;
+        }
+    }
+}
